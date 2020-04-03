@@ -1,4 +1,4 @@
-FROM wordpress:5.3-php7.3-apache
+FROM wordpress:5.4-php7.3-apache
 RUN apt-get update && apt-get install -yqq git
 
 COPY wp.ini /usr/local/etc/php/conf.d/
