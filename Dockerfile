@@ -1,4 +1,4 @@
-FROM wordpress:6.0-php7.4-apache
+FROM wordpress:6.1-php7.4-apache
 
 # Install packages under Debian
 RUN apt-get update && \
