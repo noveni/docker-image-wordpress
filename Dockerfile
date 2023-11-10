@@ -1,11 +1,11 @@
-FROM wordpress:6.1-php7.4-apache
+FROM wordpress:6.1.1-php7.4-apache
 
 # Install packages under Debian
 RUN apt-get update && \
     apt-get -y install git
 
 # Install Xdebug
-RUN pecl install -f xdebug \
+RUN pecl install -f xdebug-3.1.6 \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)\nxdebug.mode=debug\nxdebug.start_with_request=yes" > /usr/local/etc/php/conf.d/xdebug.ini;
 
 
