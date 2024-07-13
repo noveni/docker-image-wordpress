@@ -1,4 +1,7 @@
-FROM wordpress:6.4-php8.1-apache
+# 
+# 6.5-php8.1-apache-dev
+# 
+FROM wordpress:6.5-php8.1-apache
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="10000" \
@@ -14,8 +17,8 @@ RUN apt-get update \
 RUN pecl install -f xdebug \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)\nxdebug.mode=debug\nxdebug.start_with_request=yes" > /usr/local/etc/php/conf.d/xdebug.ini;
 
-COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-COPY wp.ini /usr/local/etc/php/conf.d/
+COPY opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
+COPY custom.ini $PHP_INI_DIR/conf.d/
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
