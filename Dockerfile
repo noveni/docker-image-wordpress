@@ -1,7 +1,7 @@
 # 
 # 6.5-php8.1-apache-dev
 # 
-FROM wordpress:6.5-php8.1-apache
+FROM wordpress:6.7-php8.1-apache
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="10000" \
